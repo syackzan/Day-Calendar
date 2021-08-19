@@ -10,7 +10,6 @@ textarea {
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
 }
 
 .jumbotron {
@@ -65,7 +64,7 @@ textarea {
   color: white;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.saveBtn:hover {
+  font-size: 40px;
   transition: all 0.3s ease-in-out;
 }
