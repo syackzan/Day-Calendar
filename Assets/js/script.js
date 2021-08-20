@@ -194,58 +194,74 @@ var timeInterval = setInterval(function () {
 
      //1check
      if ("1" < time && "pm" == amPM){
-        oneTBG.addClass("future");
+        oneTBG.addClass("past");
     } else if ("1" == time && "pm" == amPM){
-        oneTBG.removeClass("future");
+        oneTBG.removeClass("past");
         oneTBG.addClass("present");
     } else {
         oneTBG.removeClass("present");
-        oneTBG.addClass("past");
+        oneTBG.addClass("future");
     }
 
     //2check
-    if ("2" < time && "pm" == amPM){
+    if ("2" < time && "am" == amPM || "2" > time && "am" == amPM){
+        twoTBG.removeClass("past");
+        twoTBG.removeClass("present");
         twoTBG.addClass("future");
-    } else if ("2" == time && "pm" == amPM){
+    } else if ("2" < time && "pm" == amPM || "2" > time && "pm" == amPM){
         twoTBG.removeClass("future");
-        twoTBG.addClass("present");
-    } else {
         twoTBG.removeClass("present");
         twoTBG.addClass("past");
+    } else {
+        twoTBG.removeClass("future");
+        twoTBG.removeClaa("past")
+        twoTBG.addClass("present");
     }
 
     //3check
-    if ("3" < time && "pm" == amPM){
+    if ("3" < time && "am" == amPM || "3" > time && "am" == amPM){
+        threeTBG.removeClass("past");
+        threeTBG.removeClass("present");
         threeTBG.addClass("future");
-    } else if ("3" == time && "pm" == amPM){
+    } else if ("3" < time && "pm" == amPM || "3" > time && "pm" == amPM){
         threeTBG.removeClass("future");
-        threeTBG.addClass("present");
-    } else {
         threeTBG.removeClass("present");
         threeTBG.addClass("past");
+    } else {
+        threeTBG.removeClass("future");
+        threeTBG.removeClaa("past")
+        threeTBG.addClass("present");
     }
 
     //4check
-    if ("4" < time && "am" == amPM){
+    if ("4" < time && "am" == amPM || "4" > time && "am" == amPM){
+        fourTBG.removeClass("past");
+        fourTBG.removeClass("present");
         fourTBG.addClass("future");
-    } else if ("4" == time && "pm" == amPM){
+    } else if ("4" < time && "pm" == amPM || "4" > time && "pm" == amPM){
         fourTBG.removeClass("future");
-        fourTBG.addClass("present");
-    } else {
         fourTBG.removeClass("present");
         fourTBG.addClass("past");
+    } else {
+        fourTBG.removeClass("future");
+        fourTBG.removeClaa("past")
+        fourTBG.addClass("present");
     }
 
     //5check
-    if ("5" < time && "am" == amPM){
+    if ("5" < time && "am" == amPM || "5" > time && "am" == amPM){
+        fiveTBG.removeClass("past");
+        fiveTBG.removeClass("present");
         fiveTBG.addClass("future");
-    } else if ("4" == time && "pm" == amPM){
+    } else if ("5" < time && "pm" == amPM || "5" > time && "pm" == amPM){
         fiveTBG.removeClass("future");
-        fiveTBG.addClass("present");
-    } else {
         fiveTBG.removeClass("present");
         fiveTBG.addClass("past");
-    }
+    } else {
+        fiveTBG.removeClass("future");
+        fiveTBG.removeClaa("past")
+        fiveTBG.addClass("present");
+    }   
 
 }, 60000);
 
@@ -258,9 +274,9 @@ function presentTime() {
     
 
     //9check
-    if ("9" < time || "am" == amPM){
+    if ("9" < time && "am" == amPM){
         nineTBG.addClass("future");
-    } else if ("9" == time || "am" == amPM){
+    } else if ("9" == time && "am" == amPM){
         nineTBG.removeClass("future");
         nineTBG.addClass("present");
     } else {
@@ -269,9 +285,9 @@ function presentTime() {
     }
 
     //10check
-    if ("10" < time || "am" == amPM){
+    if ("10" < time && "am" == amPM){
         tenTBG.addClass("future");
-    } else if ("10" == time || "am" == amPM){
+    } else if ("10" == time && "am" == amPM){
         tenTBG.removeClass("future");
         tenTBG.addClass("present");
     } else {
@@ -280,9 +296,9 @@ function presentTime() {
     }
 
     //11check
-    if ("11" < time || "am" == amPM){
+    if ("11" < time && "am" == amPM){
         elevenTBG.addClass("future");
-    } else if ("11" == time || "am" == amPM){
+    } else if ("11" == time && "am" == amPM){
         elevenTBG.removeClass("future");
         elevenTBG.addClass("present");
     } else {
@@ -291,9 +307,9 @@ function presentTime() {
     }
     
     //12check
-    if ("12" < time || "am" == amPM){
+    if ("12" < time && "am" == amPM){
         twelveTBG.addClass("future");
-    } else if ("12" == time || "pm" == amPM){
+    } else if ("12" == time && "pm" == amPM){
         twelveTBG.removeClass("future");
         twelveTBG.addClass("present");
     } else {
@@ -312,49 +328,65 @@ function presentTime() {
         oneTBG.addClass("past");
     }
 
-    //2check
-    if ("2" < time && "am" == amPM){
-        twoTBG.addClass("future");
-    } else if ("2" == time && "pm" == amPM){
-        twoTBG.removeClass("future");
-        twoTBG.addClass("present");
-    } else {
-        twoTBG.removeClass("present");
-        twoTBG.addClass("past");
-    }
+   //2check
+   if ("2" < time && "am" == amPM || "2" > time && "am" == amPM){
+    twoTBG.removeClass("past");
+    twoTBG.removeClass("present");
+    twoTBG.addClass("future");
+} else if ("2" < time && "pm" == amPM || "2" > time && "pm" == amPM){
+    twoTBG.removeClass("future");
+    twoTBG.removeClass("present");
+    twoTBG.addClass("past");
+} else {
+    twoTBG.removeClass("future");
+    twoTBG.removeClaa("past")
+    twoTBG.addClass("present");
+}
 
-    //3check
-    if ("3" < time && "am" == amPM){
-        threeTBG.addClass("future");
-    } else if ("3" == time && "pm" == amPM){
-        threeTBG.removeClass("future");
-        threeTBG.addClass("present");
-    } else {
-        threeTBG.removeClass("present");
-        threeTBG.addClass("past");
-    }
+//3check
+if ("3" < time && "am" == amPM || "3" > time && "am" == amPM){
+    threeTBG.removeClass("past");
+    threeTBG.removeClass("present");
+    threeTBG.addClass("future");
+} else if ("3" < time && "pm" == amPM || "3" > time && "pm" == amPM){
+    threeTBG.removeClass("future");
+    threeTBG.removeClass("present");
+    threeTBG.addClass("past");
+} else {
+    threeTBG.removeClass("future");
+    threeTBG.removeClaa("past")
+    threeTBG.addClass("present");
+}
 
-    //4check
-    if ("4" < time && "am" == amPM){
-        fourTBG.addClass("future");
-    } else if ("4" == time && "pm" == amPM){
-        fourTBG.removeClass("future");
-        fourTBG.addClass("present");
-    } else {
-        fourTBG.removeClass("present");
-        fourTBG.addClass("past");
-    }
+//4check
+if ("4" < time && "am" == amPM || "4" > time && "am" == amPM){
+    fourTBG.removeClass("past");
+    fourTBG.removeClass("present");
+    fourTBG.addClass("future");
+} else if ("4" < time && "pm" == amPM || "4" > time && "pm" == amPM){
+    fourTBG.removeClass("future");
+    fourTBG.removeClass("present");
+    fourTBG.addClass("past");
+} else {
+    fourTBG.removeClass("future");
+    fourTBG.removeClaa("past")
+    fourTBG.addClass("present");
+}
 
-    //5check
-    if ("5" < time && "am" == amPM){
-        fiveTBG.addClass("future");
-    } else if ("4" == time && "pm" == amPM){
-        fiveTBG.removeClass("future");
-        fiveTBG.addClass("present");
-    } else {
-        fiveTBG.removeClass("present");
-        fiveTBG.addClass("past");
-    }
+//5check
+if ("5" < time && "am" == amPM || "5" > time && "am" == amPM){
+    fiveTBG.removeClass("past");
+    fiveTBG.removeClass("present");
+    fiveTBG.addClass("future");
+} else if ("5" < time && "pm" == amPM || "5" > time && "pm" == amPM){
+    fiveTBG.removeClass("future");
+    fiveTBG.removeClass("present");
+    fiveTBG.addClass("past");
+} else {
+    fiveTBG.removeClass("future");
+    fiveTBG.removeClaa("past")
+    fiveTBG.addClass("present");
+}  
 }
 
 
