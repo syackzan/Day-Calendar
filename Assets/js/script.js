@@ -11,6 +11,12 @@ var oneI = $("#oneI");
 var oneB = $("#oneB");
 var twoI = $("#twoI");
 var twoB = $("#twoB");
+var threeI = $("#threeI");
+var threeB = $("#threeB");
+var fourI = $("#fourI");
+var fourB = $("#fourB");
+var fiveI = $("#fiveI");
+var fiveB = $("#fiveB");
 
 
 //Dispaly Time//
@@ -23,6 +29,9 @@ var elevenTBG = $("#elevenTBG");
 var twelveTBG = $("#twelveTBG");
 var oneTBG = $("#oneTBG");
 var twoTBG = $("#twoTBG");
+var threeTBG = $("#threeTBG");
+var fourTBG = $("#fourTBG");
+var fiveTBG = $("#fiveTBG");
 
 // Variables //
 var nineArr = [];
@@ -36,6 +45,9 @@ printEleven();
 printTwelve();
 printOne();
 printTwo();
+printThree();
+printFour();
+printFive();
 
 // Functions to Store and retrieve into and from local storage //
 function storeNine () {
@@ -61,6 +73,18 @@ function storeOne () {
 function storeTwo () {
     localStorage.setItem("twoS", twoI.val());
     printTwo ();
+}
+function storeThree () {
+    localStorage.setItem("threeS", threeI.val());
+    printThree ();
+}
+function storeFour () {
+    localStorage.setItem("fourS", fourI.val());
+    printFour ();
+}
+function storeFive () {
+    localStorage.setItem("fiveS", fiveI.val());
+    printFive ();
 }
 
 //Printing Stored Items into Text Area //
@@ -88,6 +112,18 @@ function printTwo (){
     var storedTwoX = localStorage.getItem("twoS");
     twoI.text(storedTwoX);
 }
+function printThree (){
+    var storedThreeX = localStorage.getItem("threeS");
+    threeI.text(storedThreeX);
+}
+function printFour (){
+    var storedFourX = localStorage.getItem("fourS");
+    fourI.text(storedFourX);
+}
+function printFive (){
+    var storedFiveX = localStorage.getItem("fiveS");
+    fiveI.text(storedFiveX);
+}
 
 //On click Events//
 nineB.on("click", storeNine);
@@ -96,6 +132,9 @@ elevenB.on("click", storeEleven);
 twelveB.on("click", storeTwelve);
 oneB.on("click", storeOne);
 twoB.on("click", storeTwo);
+threeB.on("click", storeThree);
+fourB.on("click", storeFour);
+fiveB.on("click", storeFive);
 
 //Time Functions//
 var timeReceiver = moment().format("dddd, MMMM Do YYYY, h:mm a");
@@ -154,7 +193,7 @@ var timeInterval = setInterval(function () {
     }
 
      //1check
-     if ("1" < time && "am" == amPM){
+     if ("1" < time && "pm" == amPM){
         oneTBG.addClass("future");
     } else if ("1" == time && "pm" == amPM){
         oneTBG.removeClass("future");
@@ -165,7 +204,7 @@ var timeInterval = setInterval(function () {
     }
 
     //2check
-    if ("2" < time && "am" == amPM){
+    if ("2" < time && "pm" == amPM){
         twoTBG.addClass("future");
     } else if ("2" == time && "pm" == amPM){
         twoTBG.removeClass("future");
@@ -173,6 +212,39 @@ var timeInterval = setInterval(function () {
     } else {
         twoTBG.removeClass("present");
         twoTBG.addClass("past");
+    }
+
+    //3check
+    if ("3" < time && "pm" == amPM){
+        threeTBG.addClass("future");
+    } else if ("3" == time && "pm" == amPM){
+        threeTBG.removeClass("future");
+        threeTBG.addClass("present");
+    } else {
+        threeTBG.removeClass("present");
+        threeTBG.addClass("past");
+    }
+
+    //4check
+    if ("4" < time && "am" == amPM){
+        fourTBG.addClass("future");
+    } else if ("4" == time && "pm" == amPM){
+        fourTBG.removeClass("future");
+        fourTBG.addClass("present");
+    } else {
+        fourTBG.removeClass("present");
+        fourTBG.addClass("past");
+    }
+
+    //5check
+    if ("5" < time && "am" == amPM){
+        fiveTBG.addClass("future");
+    } else if ("4" == time && "pm" == amPM){
+        fiveTBG.removeClass("future");
+        fiveTBG.addClass("present");
+    } else {
+        fiveTBG.removeClass("present");
+        fiveTBG.addClass("past");
     }
 
 }, 60000);
@@ -250,6 +322,41 @@ function presentTime() {
         twoTBG.removeClass("present");
         twoTBG.addClass("past");
     }
+
+    //3check
+    if ("3" < time && "am" == amPM){
+        threeTBG.addClass("future");
+    } else if ("3" == time && "pm" == amPM){
+        threeTBG.removeClass("future");
+        threeTBG.addClass("present");
+    } else {
+        threeTBG.removeClass("present");
+        threeTBG.addClass("past");
+    }
+
+    //4check
+    if ("4" < time && "am" == amPM){
+        fourTBG.addClass("future");
+    } else if ("4" == time && "pm" == amPM){
+        fourTBG.removeClass("future");
+        fourTBG.addClass("present");
+    } else {
+        fourTBG.removeClass("present");
+        fourTBG.addClass("past");
+    }
+
+    //5check
+    if ("5" < time && "am" == amPM){
+        fiveTBG.addClass("future");
+    } else if ("4" == time && "pm" == amPM){
+        fiveTBG.removeClass("future");
+        fiveTBG.addClass("present");
+    } else {
+        fiveTBG.removeClass("present");
+        fiveTBG.addClass("past");
+    }
 }
+
+
 
 presentTime();
