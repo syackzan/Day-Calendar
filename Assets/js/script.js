@@ -192,15 +192,19 @@ var timeInterval = setInterval(function () {
         twelveTBG.addClass("past");
     }
 
-     //1check
-     if ("1" < time && "pm" == amPM){
-        oneTBG.addClass("past");
-    } else if ("1" == time && "pm" == amPM){
+    //1check
+    if ("1" < time && "am" == amPM || "1" > time && "am" == amPM){
         oneTBG.removeClass("past");
-        oneTBG.addClass("present");
-    } else {
         oneTBG.removeClass("present");
         oneTBG.addClass("future");
+    } else if ("1" < time && "pm" == amPM || "1" > time && "pm" == amPM){
+        oneTBG.removeClass("future");
+        oneTBG.removeClass("present");
+        oneTBG.addClass("past");
+    } else {
+        oneTBG.removeClass("future");
+        oneTBG.removeClaa("past")
+        oneTBG.addClass("present");
     }
 
     //2check
@@ -318,14 +322,18 @@ function presentTime() {
     }
 
     //1check
-    if ("1" < time && "am" == amPM){
+    if ("1" < time && "am" == amPM || "1" > time && "am" == amPM){
+        oneTBG.removeClass("past");
+        oneTBG.removeClass("present");
         oneTBG.addClass("future");
-    } else if ("1" == time && "pm" == amPM){
+    } else if ("1" < time && "pm" == amPM || "1" > time && "pm" == amPM){
         oneTBG.removeClass("future");
-        oneTBG.addClass("present");
-    } else {
         oneTBG.removeClass("present");
         oneTBG.addClass("past");
+    } else {
+        oneTBG.removeClass("future");
+        oneTBG.removeClaa("past")
+        oneTBG.addClass("present");
     }
 
    //2check
