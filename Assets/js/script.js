@@ -9,6 +9,8 @@ var twelveI = $("#twelveI");
 var twelveB = $("#twelveB");
 var oneI = $("#oneI");
 var oneB = $("#oneB");
+var twoI = $("#twoI");
+var twoB = $("#twoB");
 
 
 //Dispaly Time//
@@ -20,6 +22,7 @@ var tenTBG = $("#tenTBG");
 var elevenTBG = $("#elevenTBG");
 var twelveTBG = $("#twelveTBG");
 var oneTBG = $("#oneTBG");
+var twoTBG = $("#twoTBG");
 
 // Variables //
 var nineArr = [];
@@ -32,6 +35,7 @@ printTen();
 printEleven();
 printTwelve();
 printOne();
+printTwo();
 
 // Functions to Store and retrieve into and from local storage //
 function storeNine () {
@@ -53,6 +57,10 @@ function storeTwelve () {
 function storeOne () {
     localStorage.setItem("oneS", oneI.val());
     printOne ();
+}
+function storeTwo () {
+    localStorage.setItem("twoS", twoI.val());
+    printTwo ();
 }
 
 //Printing Stored Items into Text Area //
@@ -76,6 +84,10 @@ function printOne (){
     var storedOneX = localStorage.getItem("oneS");
     oneI.text(storedOneX);
 }
+function printTwo (){
+    var storedTwoX = localStorage.getItem("twoS");
+    twoI.text(storedTwoX);
+}
 
 //On click Events//
 nineB.on("click", storeNine);
@@ -83,6 +95,7 @@ tenB.on("click", storeTen);
 elevenB.on("click", storeEleven);
 twelveB.on("click", storeTwelve);
 oneB.on("click", storeOne);
+twoB.on("click", storeTwo);
 
 //Time Functions//
 var timeReceiver = moment().format("dddd, MMMM Do YYYY, h:mm a");
@@ -151,6 +164,17 @@ var timeInterval = setInterval(function () {
         oneTBG.addClass("past");
     }
 
+    //2check
+    if ("2" < time && "am" == amPM){
+        twoTBG.addClass("future");
+    } else if ("2" == time && "pm" == amPM){
+        twoTBG.removeClass("future");
+        twoTBG.addClass("present");
+    } else {
+        twoTBG.removeClass("present");
+        twoTBG.addClass("past");
+    }
+
 }, 60000);
 
 //Immediately Set Backgrounds when Website fires up//
@@ -214,6 +238,17 @@ function presentTime() {
     } else {
         oneTBG.removeClass("present");
         oneTBG.addClass("past");
+    }
+
+    //2check
+    if ("2" < time && "am" == amPM){
+        twoTBG.addClass("future");
+    } else if ("2" == time && "pm" == amPM){
+        twoTBG.removeClass("future");
+        twoTBG.addClass("present");
+    } else {
+        twoTBG.removeClass("present");
+        twoTBG.addClass("past");
     }
 }
 
