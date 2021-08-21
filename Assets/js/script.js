@@ -332,7 +332,7 @@ function presentTime() {
         oneTBG.addClass("past");
     } else {
         oneTBG.removeClass("future");
-        oneTBG.removeClaa("past")
+        oneTBG.removeClass("past")
         oneTBG.addClass("present");
     }
 
@@ -347,7 +347,7 @@ function presentTime() {
         twoTBG.addClass("past");
     } else {
         twoTBG.removeClass("future");
-        twoTBG.removeClaa("past")
+        twoTBG.removeClass("past")
         twoTBG.addClass("present");
     }
 
@@ -362,7 +362,7 @@ function presentTime() {
         threeTBG.addClass("past");
     } else {
         threeTBG.removeClass("future");
-        threeTBG.removeClaa("past")
+        threeTBG.removeClass("past")
         threeTBG.addClass("present");
     }
 
@@ -392,11 +392,9 @@ function presentTime() {
         fiveTBG.addClass("past");
     } else {
         fiveTBG.removeClass("future");
-        fiveTBG.removeClaa("past")
+        fiveTBG.removeClass("past")
         fiveTBG.addClass("present");
     }  
 }
-
-
 
 presentTime();
