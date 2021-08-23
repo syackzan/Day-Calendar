@@ -271,7 +271,8 @@ var timeInterval = setInterval(function () {
 
 //Immediately Set Backgrounds when Website fires up//
 function presentTime() {
-    time = moment().format("h")
+    timeString = moment().format("h");
+    var time = Number(timeString);
     console.log(time);
     var amPM = moment().format("a");
     console.log(amPM);
@@ -326,7 +327,7 @@ function presentTime() {
         oneTBG.removeClass("past");
         oneTBG.removeClass("present");
         oneTBG.addClass("future");
-    } else if ("1" < time && "pm" == amPM || "1" > time && "pm" == amPM){
+    } else if (("1" < time && "pm" == amPM) || ("1" > time && "pm" == amPM)){
         oneTBG.removeClass("future");
         oneTBG.removeClass("present");
         oneTBG.addClass("past");
@@ -338,10 +339,10 @@ function presentTime() {
 
    //2check
    if (("2" < time && "am" == amPM) || ("2" > time && "pm" == amPM)){
-    twoTBG.removeClass("past");
-    twoTBG.removeClass("present");
-    twoTBG.addClass("future");
-    } else if ("2" < time && "pm" == amPM || "2" > time && "pm" == amPM){
+        twoTBG.removeClass("past");
+        twoTBG.removeClass("present");
+        twoTBG.addClass("future");
+    } else if (("2" < time && "pm" == amPM) || ("2" > time && "pm" == amPM)){
         twoTBG.removeClass("future");
         twoTBG.removeClass("present");
         twoTBG.addClass("past");
@@ -356,7 +357,7 @@ function presentTime() {
         threeTBG.removeClass("past");
         threeTBG.removeClass("present");
         threeTBG.addClass("future");
-    } else if ("3" < time && "pm" == amPM || "3" > time && "pm" == amPM){
+    } else if (("3" < time && "pm" == amPM) || ("3" > time && "pm" == amPM)){
         threeTBG.removeClass("future");
         threeTBG.removeClass("present");
         threeTBG.addClass("past");
@@ -371,7 +372,7 @@ function presentTime() {
         fourTBG.removeClass("past");
         fourTBG.removeClass("present");
         fourTBG.addClass("future");
-    } else if ("4" < time && "pm" == amPM || "4" > time && "pm" == amPM){
+    } else if (("4" < time && "pm" == amPM) || ("4" > time && "pm" == amPM)){
         fourTBG.removeClass("future");
         fourTBG.removeClass("present");
         fourTBG.addClass("past");
@@ -386,7 +387,7 @@ function presentTime() {
         fiveTBG.addClass("future");
         fiveTBG.removeClass("past");
         fiveTBG.removeClass("present");
-    } else if ("5" < time && "pm" == amPM || "5" > time && "pm" == amPM){
+    } else if (("5" < time && "pm" == amPM) || ("5" > time && "pm" == amPM)){
         fiveTBG.removeClass("future");
         fiveTBG.removeClass("present");
         fiveTBG.addClass("past");
